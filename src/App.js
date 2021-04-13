@@ -10,8 +10,21 @@ function App() {
   contacts and appointments 
   */
 
-  const [contacts, setContacts] = useState([]);
-  const [appointments, setAppointments] = useState([]);
+  const sampleContact = {
+    name: "SampleContact",
+    phone: "955-345-5467",
+    email: "sample@sample.com",
+  };
+
+  const [contacts, setContacts] = useState([sampleContact]);
+  const [appointments, setAppointments] = useState([
+    {
+      title: "SampleTitle",
+      contact: sampleContact.name,
+      date: "SampleDate",
+      time: "SampleTime",
+    },
+  ]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -53,7 +66,8 @@ function App() {
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
             <AppointmentsPage
-              value={appointments}
+              contacts={contacts}
+              appointments={appointments}
               addAppointment={addAppointment}
             />
           </Route>

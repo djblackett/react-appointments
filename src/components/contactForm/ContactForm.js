@@ -27,7 +27,9 @@ export const ContactForm = ({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button type="submit" onSubmit={handleSubmit}>
+        Submit
+      </button>
     </form>
   );
 };

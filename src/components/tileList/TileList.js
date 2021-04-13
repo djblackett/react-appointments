@@ -6,9 +6,13 @@ export const TileList = (props) => {
 
   return (
     <div>
-      {contactArray.map((contact, index) => (
-        <Tile contact={contact} key={index} />
-      ))}
+      <ul>
+        {contactArray.map((contact, index) => (
+          <li key={index}>
+            <Tile contact={contact} key={index} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

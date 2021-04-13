@@ -17,10 +17,13 @@ export const ContactsPage = (props) => {
   const [duplicateName, setDuplicateName] = useState(false);
 
   useEffect(() => {
-    if (!contacts.filter((contact) => contact.currentName === currentName)) {
-      setDuplicateName(false);
-    } else {
+    const match = contacts.filter(
+      (contact) => contact.currentName === currentName
+    );
+    if (match.length > 0) {
       setDuplicateName(true);
+    } else {
+      setDuplicateName(false);
     }
   }, [contacts, currentName]);
 
